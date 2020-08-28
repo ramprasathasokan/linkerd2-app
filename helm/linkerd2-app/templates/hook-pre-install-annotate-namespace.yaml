@@ -82,7 +82,6 @@ spec:
         imagePullPolicy: "{{ .Values.kubectlImage.pullPolicy }}"
         command:
         - /bin/sh
-        - -e
         - -x
         - -c
         - >-
@@ -90,5 +89,5 @@ spec:
           kubectl label --overwrite ns {{ .Release.Namespace }} {{.Values.global.linkerdNamespaceLabel}}="true";
           kubectl label --overwrite ns {{ .Release.Namespace }} config.linkerd.io/admission-webhooks=disabled;
           kubectl -n {{ .Release.Namespace }} delete configmap linkerd-config || true;
-      restartPolicy: Never
+      restartPolicy: OnFailure
   backoffLimit: 6
