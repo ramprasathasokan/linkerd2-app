@@ -88,6 +88,6 @@ spec:
           kubectl annotate --overwrite ns {{ .Release.Namespace }} {{.Values.global.proxyInjectAnnotation}}={{.Values.global.proxyInjectDisabled}};
           kubectl label --overwrite ns {{ .Release.Namespace }} {{.Values.global.linkerdNamespaceLabel}}="true";
           kubectl label --overwrite ns {{ .Release.Namespace }} config.linkerd.io/admission-webhooks=disabled;
-          kubectl -n {{ .Release.Namespace }} delete configmap linkerd-config || true;
+          kubectl -n {{ .Release.Namespace }} get configmap linkerd-config 2>/dev/null 1>&2; if [[ $? -eq 0 ]]; then kubectl -n {{ .Release.Namespace }} delete configmap linkerd-config; fi
       restartPolicy: OnFailure
   backoffLimit: 6
