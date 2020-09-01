@@ -1,6 +1,6 @@
 dependencies:
 - name: partials
-  repository: file://../partials
+  repository: file://partials
   version: 0.1.0
-digest: sha256:3a86b96a2966f03ba04518723838b49719a3277dfb9bea0b3f067e83d370e0b3
-generated: 2019-07-24T19:51:15.04322926-07:00
+digest: sha256:3abacbfa14d67059def9f30bc471d6e718f41cc20dd6778afed7a847492a920d
+generated: "2020-09-01T15:28:08.273776443+02:00"
