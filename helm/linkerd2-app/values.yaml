@@ -100,7 +100,7 @@ debugContainer:
 # identity configuration
 identity:
   issuer:
-    scheme: linkerd.io/tls
+    scheme: linkerd.io/cert-manager
 
     clockSkewAllowance: 20s
 
